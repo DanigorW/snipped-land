@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../smootscoll/style.css">
+    <title>snippet land</title>
+</head>
+
+<body>
+    <header id="header1" class="main-header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+            <a class="navbar-brand text-uppercase" href="../../index.html">cheatsheet</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            how to ׂ(js)
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="../connectToApis.html">connect to api</a>
+                            <a class="dropdown-item" href="#">before and after slider</a>
+                            <a class="dropdown-item" href="#">smooth scrolling</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            how to ׂ(css)
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#">connect to api</a>
+                            <a class="dropdown-item" href="#">before and after slider</a>
+                            <a class="dropdown-item" href="#">smooth scrolling</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link " href="../../mdn doc/mdnDoc.html" id="navbarDropdownMenuLink">
+                            MDN DOCS
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </header>
+
+    <section style="height: 100vh;" class="main-nav">
+
+
+
+
+        <pre>
+            // location.search = only get the querys params from url (there is a ? sign with it!!)
+            // to delete the ? sign we need to use split by ?  - location.search.split("?")[1] get all
+            // the url params without the ? sign
+
+            var url_string = location.search;
+
+            // location.href = get all the url link
+            
+            var typeformFull = document.querySelector("#typeform-full");
+            var queryFromUrl = location.search;
+            var baseUrl = "https://tradeocom.typeform.com/to/";
+            var form_id = "H1Nrcf";
+            var aff_id = "aff_id=1";
+            var offer_id = "offer_id=170";
+            var broker = "broke=tradeocom";
+
+            var url_object = new URL(url_string);
+            var URLpar_aff_id = url_object.searchParams.get("aff_id");
+            var URLpar_offer_id = url_object.searchParams.get("offer_id");
+            var URLpar_broker = url_object.searchParams.get("broker");
+            var URLpar_form_id = url_object.searchParams.get("form_id");
+
+            
+            if (queryFromUrl === "") {
+
+                    typeformFull.setAttribute("src", "https://tradeocom.typeform.com/to/" + form_id + "?" + broker + "&" + aff_id + "&" + offer_id   + "&ip=" + ipFromApi);    
+            }
+
+            var aff_id_from_url;
+            var offer_id_from_url;
+            var form_id_from_url;
+            var broker_from_url;
+
+        if(URLpar_aff_id) {
+            aff_id_from_url = URLpar_aff_id
+        }
+
+        if(URLpar_offer_id) {
+            offer_id_from_url = URLpar_offer_id
+        }
+
+        if(URLpar_form_id) {
+            form_id_from_url = URLpar_form_id
+        }
+
+        if(URLpar_broker) {
+            broker_from_url = URLpar_broker
+        }
+        
+        if(aff_id_from_url){
+            aff_id = "aff_id=" + aff_id_from_url;
+        }
+        
+        if(offer_id_from_url){
+            offer_id = "offer_id=" + offer_id_from_url
+        }
+
+        if(form_id_from_url){
+            form_id = form_id_from_url
+        }
+
+        if(broker_from_url){
+            broker = "broker=" + broker_from_url;
+        }
+        
+        if(queryFromUrl){
+            typeformFull.setAttribute("src", "https://tradeocom.typeform.com/to/" + form_id + "?" + broker + "&" + aff_id + "&" + offer_id + "&" + location.search.split("?")[1] + "&ip=" + ipFromApi);
+        }
+                
+                
+            </pre>
+        </section>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

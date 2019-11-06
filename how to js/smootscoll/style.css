@@ -1,0 +1,37 @@
+ul {
+    list-style: none;
+  }
+  
+  body {
+    font-family: sans-serif;
+  }
+  
+  a {
+    text-transform: uppercase !important;
+  }
+  
+  .main-header {
+    height: auto;
+    background: rgb(53, 52, 52);
+  
+    /*linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url("./2.jpg") no-repeat center/cover ;*/
+  }
+ 
+  .scroll {
+    text-align: center;
+    padding: 3rem 0;
+  }
+
+
+  section {
+    background: #232323;
+  }
+
+
+  pre {
+    background: #17a2b8;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 5rem 0;
+  }
